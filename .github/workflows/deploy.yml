@@ -6,7 +6,9 @@ on:
       - main
 
 permissions:
-  contents: write  # Required to push to gh-pages
+  contents: write # needed to push to gh-pages
+  pages: write # needed to configure and deploy to Pages
+  id-token: write
 
 jobs:
   deploy:
@@ -22,7 +24,7 @@ jobs:
       - name: Upload site files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # Upload root files (HTML, CSS, JS)
+          path: "." # Upload root files (HTML, CSS, JS)
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
